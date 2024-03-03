@@ -1,3 +1,7 @@
+---
+typora-root-url: pictures
+---
+
 ## 不要通过共享内存来通信，要通过通信来共享内存
 
 
@@ -8,7 +12,7 @@
 
 在新调度器中，除了**M(thread)**和**G(goroutine)**，又引进了**P(Processor)**。
 
-![15-gmp.png](https://cdn.nlark.com/yuque/0/2022/png/26269664/1650776288599-36c23cc6-3d25-4f6f-8f80-83bd43aa6dec.png?x-oss-process=image%2Fwatermark%2Ctype_d3F5LW1pY3JvaGVp%2Csize_30%2Ctext_5YiY5Li55YawQWNlbGQ%3D%2Ccolor_FFFFFF%2Cshadow_50%2Ct_80%2Cg_se%2Cx_10%2Cy_10)
+![1-gmp.png](.\pictures\1-gmp.png)
 
 **Processor，它包含了运行goroutine的资源**，如果线程想运行goroutine，必须先获取P，P中还包含了可运行的G队列。
 
@@ -16,7 +20,7 @@
 
 在Go中，**线程是运行goroutine的实体，调度器的功能是把可运行的goroutine分配到工作线程上**。
 
-![16-GMP-调度.png](https://cdn.nlark.com/yuque/0/2022/png/26269664/1650776301442-fb76123c-8d0e-4375-af35-b5728a5b1bc7.png?x-oss-process=image%2Fwatermark%2Ctype_d3F5LW1pY3JvaGVp%2Csize_29%2Ctext_5YiY5Li55YawQWNlbGQ%3D%2Ccolor_FFFFFF%2Cshadow_50%2Ct_80%2Cg_se%2Cx_10%2Cy_10%2Fresize%2Cw_937%2Climit_0)
+![2-GMP-调度.png](.\pictures\2-GMP-调度.png)
 
 1. **全局队列**（Global Queue）：存放等待运行的G。
 
@@ -82,7 +86,7 @@ M与P的数量没有绝对关系，一个M阻塞，P就会去创建或者切换�
 
 ### (3) go func()  调度流程
 
-![18-go-func调度周期.jpeg](https://cdn.nlark.com/yuque/0/2022/jpeg/26269664/1650776333419-50d3a922-bd53-4bff-b0b6-280e6abc5d74.jpeg?x-oss-process=image%2Fwatermark%2Ctype_d3F5LW1pY3JvaGVp%2Csize_55%2Ctext_5YiY5Li55YawQWNlbGQ%3D%2Ccolor_FFFFFF%2Cshadow_50%2Ct_80%2Cg_se%2Cx_10%2Cy_10%2Fresize%2Cw_937%2Climit_0%2Finterlace%2C1)
+![3-go-func调度周期.jpeg](.\pictures\3-go-func调度周期.jpeg)
 
 从上图我们可以分析出几个结论：
 
@@ -110,7 +114,7 @@ M与P的数量没有绝对关系，一个M阻塞，P就会去创建或者切换�
 
 ### (4) 调度器的生命周期
 
-![17-pic-go调度器生命周期.png](https://cdn.nlark.com/yuque/0/2022/png/26269664/1650776346389-ab0ffa04-c707-4ec8-a810-0929533fd00c.png?x-oss-process=image%2Fwatermark%2Ctype_d3F5LW1pY3JvaGVp%2Csize_13%2Ctext_5YiY5Li55YawQWNlbGQ%3D%2Ccolor_FFFFFF%2Cshadow_50%2Ct_80%2Cg_se%2Cx_10%2Cy_10)
+![4-pic-go调度器生命周期.png](.\pictures\4-pic-go调度器生命周期.png)
 
 特殊的M0和G0
 
