@@ -1,7 +1,3 @@
----
-typora-root-url: pictures
----
-
 ## 不要通过共享内存来通信，要通过通信来共享内存
 
 
@@ -12,7 +8,7 @@ typora-root-url: pictures
 
 在新调度器中，除了**M(thread)**和**G(goroutine)**，又引进了**P(Processor)**。
 
-![1-gmp.png](.\pictures\1-gmp.png)
+![1-gmp.png](./pictures/1-gmp.png)
 
 **Processor，它包含了运行goroutine的资源**，如果线程想运行goroutine，必须先获取P，P中还包含了可运行的G队列。
 
@@ -20,7 +16,7 @@ typora-root-url: pictures
 
 在Go中，**线程是运行goroutine的实体，调度器的功能是把可运行的goroutine分配到工作线程上**。
 
-![2-GMP-调度.png](.\pictures\2-GMP-调度.png)
+![2-GMP-调度.png](./pictures/2-GMP-调度.png)
 
 1. **全局队列**（Global Queue）：存放等待运行的G。
 
@@ -86,7 +82,7 @@ M与P的数量没有绝对关系，一个M阻塞，P就会去创建或者切换�
 
 ### (3) go func()  调度流程
 
-![3-go-func调度周期.jpeg](.\pictures\3-go-func调度周期.jpeg)
+![3-go-func调度周期.jpeg](./pictures/3-go-func调度周期.jpeg)
 
 从上图我们可以分析出几个结论：
 
@@ -114,7 +110,7 @@ M与P的数量没有绝对关系，一个M阻塞，P就会去创建或者切换�
 
 ### (4) 调度器的生命周期
 
-![4-pic-go调度器生命周期.png](.\pictures\4-pic-go调度器生命周期.png)
+![4-pic-go调度器生命周期.png](./pictures/4-pic-go调度器生命周期.png)
 
 特殊的M0和G0
 
